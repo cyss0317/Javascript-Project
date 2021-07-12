@@ -25,4 +25,23 @@ Functionality
 
 
 
-    
+
+
+    Rules
+ Avoid all the harmful obstacles and guide the chicken to the other side. There would be two different place for chicken to enter, one could be chicken farm and other could be fried chicken place.
+
+Difficulty 
+	User can choose difficulty of the game, the harder they choose the faster other objects can move, but the speed of the chicken should stay the same.
+ 
+Object needs to be created
+	Lion, bear, wolf, truck
+	Object appears from either left of right with certain speed
+		Object attributes
+				speed, direction, current position
+	Set time interval to adjust speed of object		 
+
+
+APIs
+music for iTunes API
+canvas for the main grid
+plan to use PNG I draw for characters

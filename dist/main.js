@@ -15,7 +15,7 @@
   \**********************/
 /***/ (function() {
 
-eval("\n\n//# sourceURL=webpack://Javascript-Project/./src/index.js?");
+eval("document.addEventListener(\"DOMContentLoaded\", function() {\n    const submit = document.queryString(\"#submit-form\");\n\n    submit\n})\n\n//# sourceURL=webpack://Javascript-Project/./src/index.js?");
 
 /***/ })
 
