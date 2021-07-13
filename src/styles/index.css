@@ -1,6 +1,6 @@
 
 
-#game-canvas {
+/* #game-canvas {
     border: 5px solid rgba(255, 183, 0, 0.879);
     background-image: url(/img/Main-map.jpg);
     position: absolute;
@@ -9,7 +9,7 @@
     transform:  translate(-50%, 0%);
     width: 600px;
     height: 600px;
-}
+} */
 /* 
 #wolf-right {
     width: 50px;
