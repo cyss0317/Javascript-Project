@@ -17,25 +17,38 @@ document.addEventListener("DOMContentLoaded", function() {
     
     const wolf_right = new Image();
     wolf_right.src = './img/Wolf-right.png'
+    const bear_right = new Image();
+    bear_right.src = './img/Bear_right.png'
 
     
     //wolf_right from left to right
     
-    // function randomPosition() {
-    //     result = Math.random() * (600 - 150) + 150;
-    //     return result;
-    // }
-    let x = 0;
+    function randomPosition() {
+        result = Math.random() * (600 - 150) + 150;
+        return result;
+    }
+    let x = -50;
+    let y = randomPosition();
+
     function moveRight(){
         ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-        // ctx.fillRect(100, 50, 100, 100);
         //ctx.drawImage(image, sx, sy, sw, sh , dx, dy, dw, dh)
         ctx.drawImage(wolf_right, x, 0, 50, 50);
+        ctx.drawImage(bear_right, x, 50, 50, 50 );
         x++;
         requestAnimationFrame(moveRight);
     }
     moveRight();
     
+    function moveRight() {
+        ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        //ctx.drawImage(image, sx, sy, sw, sh , dx, dy, dw, dh)
+        ctx.drawImage(wolf_right, x, 0, 50, 50);
+        ctx.drawImage(bear_right, x, 50, 50, 50);
+        x++;
+        requestAnimationFrame(moveRight);
+    }
+    moveRight();
 
     // const canvas = document.querySelector("#game-canvas");
     // canvas.height = Game.DIM_X;
