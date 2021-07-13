@@ -1,11 +1,13 @@
 const Util = require('./util.js');
-
+const canvas = document.getElementById('game-canvas');
+const CANVAS_WIDTH = 600;
+const CANVAS_HEIGHT = 600;
 
 class MovingObject {
     constructor(url) {
         
-        new Image();
-        this.src = url;
+        this.animal = new Image();
+        this.animal.src = url;
         // //wolf imgs
         // const wolfRight = new Image();
         // wolfRight.src = './img/Wolf-right.png'
@@ -41,9 +43,10 @@ class MovingObject {
     }
     
     
-    move() {
+    move(ctx) {
+        
         ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-        const randomY = Util.randomPostion();
+        const randomY = Util.randomPosition();
         const randomX = Util.randomX();
         // console.log(animal);
         //ctx.drawImage(image, sx, sy, sw, sh , dx, dy, dw, dh)
@@ -51,19 +54,23 @@ class MovingObject {
     
         //move right to left   
         if ( randomX === 650 ) {
-            for (let x = randomX; x > -50; x--) {
-                ctx.drawImage(movingLeftImg(), randomX, randomY, 50, 50);
-                requestAnimationFrame(move);        
+
+            ctx.drawImage(this.animal, randomX, randomY, 50, 50);
+            x--;      
+            requestAnimationFrame(() => this.move(ctx));  
             }
         } else {
             //move left to right
             for (let x = randomX; x < 650; x++) {
-                ctx.drawImage(movingRightImg(), randomX, randomY, 50, 50);
-                requestAnimationFrame(move);
+                ctx.drawImage(this.animal, randomX, randomY, 50, 50);
+                requestAnimationFrame(() => this.move(ctx));
             }
         }
     }
+    
 }
+
+
 
 //random images moving to the right
 

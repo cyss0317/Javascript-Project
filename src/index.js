@@ -13,29 +13,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const canvas = document.getElementById('game-canvas');
     const ctx = canvas.getContext('2d');
-    const CANVAS_WIDTH = canvas.width = 600;
-    const CANVAS_HEIGHT = canvas.height = 600;
-
-
+    const CANVAS_WIDTH = canvas.width;
+    const CANVAS_HEIGHT = canvas.height; 
 
     //wolf
-    const wolfRight = new MovingObject('./img/Wolf-right.png');
-    const wolfLeft = new MovingObject('./img/Wolf-left2.png');
+    const wolfRight = new MovingObject('../../img/Wolf-right.png');
+    const wolfLeft = new MovingObject('../../img/Wolf-left2.png');
     //bear
-    const bearRight = new MovingObject('./img/Bear_right.png');
-    const bearLeft = new MovingObject('./img/Bear_left.png');
+    const bearRight = new MovingObject('../../img/Bear_right.png');
+    const bearLeft = new MovingObject('../../img/Bear_left.png');
     //chicken
-    const chickenFront = new MovingObject('./img/Chicken-front.png');
-    const chickenLeft = new MovingObject('./img/Chicken_left.png');
-    const chickenLeftMove = new MovingObject('./img/Chicken_left_move.png');
-    const chickenRight = new MovingObject('./img/Chicken_right.png');
-    const chickenRightMove = new MovingObject('./img/Chicken_right_move.png');
+    const chickenFront = new MovingObject('../../img/Chicken-front.png');
+    const chickenLeft = new MovingObject('../../img/Chicken_left.png');
+    const chickenLeftMove = new MovingObject('../../img/Chicken_left_move.png');
+    const chickenRight = new MovingObject('../../img/Chicken_right.png');
+    const chickenRightMove = new MovingObject('../../img/Chicken_right_move.png');
     
 
     
 
     
-    wolfRight.move();
+    wolfRight.move(ctx);
 
     
     // function moveRight() {
