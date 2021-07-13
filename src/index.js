@@ -11,30 +11,31 @@ document.addEventListener("DOMContentLoaded", function() {
     // canvas_background.src ='./Main-map.jpg'
     
 
-
     const canvas = document.getElementById('game-canvas');
     const ctx = canvas.getContext('2d');
     const CANVAS_WIDTH = canvas.width = 600;
     const CANVAS_HEIGHT = canvas.height = 600;
+
+
+
+    //wolf
+    const wolfRight = new MovingObject('./img/Wolf-right.png');
+    const wolfLeft = new MovingObject('./img/Wolf-left2.png');
+    //bear
+    const bearRight = new MovingObject('./img/Bear_right.png');
+    const bearLeft = new MovingObject('./img/Bear_left.png');
+    //chicken
+    const chickenFront = new MovingObject('./img/Chicken-front.png');
+    const chickenLeft = new MovingObject('./img/Chicken_left.png');
+    const chickenLeftMove = new MovingObject('./img/Chicken_left_move.png');
+    const chickenRight = new MovingObject('./img/Chicken_right.png');
+    const chickenRightMove = new MovingObject('./img/Chicken_right_move.png');
     
-    const wolf_right = new Image();
-    wolf_right.src = './img/Wolf-right.png'
-    const bear_right = new Image();
-    bear_right.src = './img/Bear_right.png'
 
     
-    //wolf_right from left to right
+
     
-    // function randomPosition() {
-    //     result = Math.random() * (600 - 150) + 150;
-    //     return result;
-    // }
-    let x = -50;
-    let y = Util.randomPosition();
-
-  
-
-    MovingObject.move(bear_right);
+    wolfRight.move();
 
     
     // function moveRight() {
