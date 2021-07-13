@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   
 
-    moveRight(bear_right);
+    MovingObject.move(bear_right);
 
     
     // function moveRight() {
