@@ -5,7 +5,6 @@ const Util = require('./util');
 function Game() {
     this.movingObjects = [];
     this.chicken = [];
-
     this.addMovingObject();
 }
 
@@ -20,10 +19,10 @@ Game.prototype.addMovingObject = function(){
 
         if( character.pos[0] === 650) {
             character.animal.url = character.randomLeftCharacter;
-            character.vel = [-1, 0];
+            character.dir = [-1, 0];
         } else {
             character.animal.url = character.randomRightCharacter;
-            character.vel = [1, 0];
+            character.dir = [1, 0];
         }
     }
 }

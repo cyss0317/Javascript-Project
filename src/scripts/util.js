@@ -11,7 +11,7 @@ const Util = {
     
     randomY() {
         //for x and y
-        const numbers = [1,2,3,4,5,6,7,8,9];
+        const numbers = [1,2,3,4,5,6,7,8,9,11,12];
         const result = numbers[Math.floor(Math.random() * numbers.length)] * 50;
         return result;
     },

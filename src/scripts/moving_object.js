@@ -3,7 +3,7 @@ const Util = require('./util.js');
 function MovingObject(options) {
         this.animal = new Image();
         this.animal.src = options.url;
-        this.vel = options.vel;
+        this.dir = options.dir;
         this.pos = options.pos || Util.randomPosition();
         this.game = options.game
 }
@@ -19,7 +19,7 @@ MovingObject.prototype.randomRightCharacter = function () {
     return characters[Math.floor(Math.random() * characters.length)];
 }
 
-MovingObject.prototype.draw = function(canvas, ctx){
+MovingObject.prototype.draw = function(ctx){
 
     this.animal.onload = () => ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);
     
@@ -30,21 +30,19 @@ MovingObject.prototype.draw = function(canvas, ctx){
 
 };
 
-//same as requestAnimationFrame();
-const NORMAL_FRAME_TIME_DELTA = 1000/60;
-MovingObject.prototype.move = function(timeDelta){
-    const velocityScale = timeDelta/ NORMAL_FRAME_TIME_DELTA;
-    
-    this.pos = [this.pos[0] + this.vel[0] * velocityScale,this.pos[1] + this.vel[1] * velocityScale];
+
+MovingObject.prototype.move = function(){
+    this.pos = [this.pos[0] + this.dir[0] ,this.pos[1] + this.dir[1] ];
 }
 
 
-MovingObject.prototype.collideWith = function(otherObject){
+MovingObejct.prototype.isCollidedWith = function(otherObject){
+    // width 50, height 50
 
-};
-MovingObject.prototype.remove = function(){
-    this.game.remove();
+
 }
+
+
 
 module.exports = MovingObject;
 
