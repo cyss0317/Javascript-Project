@@ -13,23 +13,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const game = new Game();
     new GameView(game, ctx).start();
-    const chicken = new Chicken();
-    chicken.draw(ctx);
-    ctx.rect(0, 0, 50, 50);
-    ctx.stroke();
+    // const chicken = new Chicken();
+    // chicken.draw(ctx);
+    // ctx.rect(0, 0, 50, 50);
+    // ctx.stroke();
 
-    function move(e){
-        if (e.keyCode == 39){
-            chicken.pos[0] += 3;
-        } else if (e.keyCode == 37) {
-            chicken.pos[0] -= 3;
-        } else if (e.keyCode == 38){
-            chicken.pos[1] -= 3;
-        } else if (e.keyCode == 40){
-            chicken.pos[1] += 3;
-        }
-    }
-    document.onkeydown = move;
+    // function move(e){
+    //     if (e.keyCode == 39){
+    //         chicken.pos[0] += 3;
+    //     } else if (e.keyCode == 37) {
+    //         chicken.pos[0] -= 3;
+    //     } else if (e.keyCode == 38){
+    //         chicken.pos[1] -= 3;
+    //     } else if (e.keyCode == 40){
+    //         chicken.pos[1] += 3;
+    //     }
+    // }
+    // document.onkeydown = move;
 
 
 })

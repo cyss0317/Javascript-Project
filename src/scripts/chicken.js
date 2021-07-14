@@ -18,6 +18,8 @@ Chicken.prototype.move = function(move) {
         this.animal.src = './img/Chicken_right_move.png'
     } else if (this.pos[1] -= move[1]) {
         this.animal.src = './img/Chicken_front.png'
+    } else if (this.pos[1] += move[1]) {
+        this.animal.src = './img/Chicken_front.png'
     }
 }
 

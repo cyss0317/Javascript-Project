@@ -10,7 +10,7 @@ function Game() {
 
 Game.DIM_X = 450;
 Game.DIM_Y = 550;
-Game.NUM_MOVINGOBJECTS = 70;
+Game.NUM_MOVINGOBJECTS = 1;
 
 
 
@@ -34,7 +34,7 @@ Game.prototype.draw = function(ctx) {
     for (let i = 0; i < this.movingObjects.length; i++) {
         this.movingObjects[i].draw(ctx);
     }
-    // this.chicken.draw(ctx);
+    this.chicken.draw(ctx);
 }
 
 Game.prototype.moveObjects = function() {
