@@ -2,27 +2,35 @@ const Util = require('./util.js');
 
 function MovingObject(options) {
         this.animal = new Image();
-        this.animal.src = options.url;
-        this.dir = options.dir;
-        this.pos = options.pos || Util.randomPosition();
+        // this.animal.src = options.url;
+        // this.dir = options.dir;
+        this.radius = 25;
+        this.pos =  Util.randomPosition();
         this.game = options.game
 }
 
 MovingObject.prototype.randomLeftCharacter = function() {
-    let characters = ['../../img/Bear_left.png', '../../img/Wolf_left2.png'];
+    let characters = ['./img/Bear_left.png', './img/Wolf_left.png'];
     return characters[Math.floor(Math.random() * characters.length)];
 }
 
 
 MovingObject.prototype.randomRightCharacter = function () {
-    let characters = ['../../img/Bear_right.png', '../../img/Wolf_right.png'];
+    let characters = ['./img/Bear_right.png', './img/Wolf_right.png'];
     return characters[Math.floor(Math.random() * characters.length)];
 }
 
 MovingObject.prototype.draw = function(ctx){
 
-    this.animal.onload = () => ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);
-    
+    // let size = this.radius
+    // this.animal.onload = () => ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);
+    ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);
+    // ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);
+    // ctx.beginPath();
+    // ctx.arc(
+    //     this.pos[0], this.pos[1], 5, 0, 2 * Math.PI, true
+    // );
+    // ctx.fill();
     // this.animal.onload = drawImageActualSize;
     // this.animal.naturalWidth = canvas.width;
     // this.animal.naturalHeight = canvas.height;
@@ -31,16 +39,20 @@ MovingObject.prototype.draw = function(ctx){
 };
 
 
+
 MovingObject.prototype.move = function(){
     this.pos = [this.pos[0] + this.dir[0] ,this.pos[1] + this.dir[1] ];
 }
 
 
-MovingObejct.prototype.isCollidedWith = function(otherObject){
-    // width 50, height 50
+MovingObject.prototype.isCollidedWith = function(otherObject){
+    // posotion, width 50, height 50
 
-
+    let distance = Util.distance(this, otherObject);
+    return distance < (this.radius + otherObject.radius)
 }
+
+
 
 
 

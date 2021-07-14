@@ -13,17 +13,17 @@ Game.DIM_Y = 550;
 Game.NUM_MOVINGOBJECTS = 15;
 
 Game.prototype.addMovingObject = function(){
-    for (let i = 0; i < this.movingObjects.length; i++) {   
-        let character = new MovingObject();
-        this.movingObjects.push(character);
-
-        if( character.pos[0] === 650) {
-            character.animal.url = character.randomLeftCharacter;
+    for (let i = 0; i < Game.NUM_MOVINGOBJECTS; i++) {   
+        let character = new MovingObject({game: this});
+        
+        if( character.pos[0] === 500) {
+            character.animal.src = character.randomLeftCharacter();
             character.dir = [-1, 0];
         } else {
-            character.animal.url = character.randomRightCharacter;
+            character.animal.src = character.randomRightCharacter();
             character.dir = [1, 0];
         }
+        this.movingObjects.push(character);
     }
 }
 
