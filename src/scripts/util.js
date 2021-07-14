@@ -25,9 +25,25 @@ const Util = {
         return result;
     },
 
+    randomSpeed() {
+        const speed = [1,2];
+        let result = Math.random() * Math.floor(Math.random() * speed.length);
+        return result; 
+    },
+
     distance(obj1, obj2){
         let result = Math.sqrt(Math.pos(obj1.pos[0] - obj2.pos[0], 2) + Math.pow(obj1.pos[1] - obj2.pos[1], 2));
         return result;
+    },
+
+     wrap(xOrY, maxGrid) {
+        if (xOrY < 0) {
+            return maxGrid - (xOrY % maxGrid);
+        } else if (xOrY > maxGrid) {
+            return xOrY % maxGrid;
+        } else {
+            return xOrY;
+        }
     }
 }
 

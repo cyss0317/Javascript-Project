@@ -10,13 +10,13 @@ function Game() {
 
 Game.DIM_X = 450;
 Game.DIM_Y = 550;
-Game.NUM_MOVINGOBJECTS = 15;
+Game.NUM_MOVINGOBJECTS = 30;
 
 Game.prototype.addMovingObject = function(){
     for (let i = 0; i < Game.NUM_MOVINGOBJECTS; i++) {   
         let character = new MovingObject({game: this});
         
-        if( character.pos[0] === 500) {
+        if( character.pos[0] === 650) {
             character.animal.src = character.randomLeftCharacter();
             character.dir = [-1, 0];
         } else {
@@ -40,6 +40,9 @@ Game.prototype.moveObjects = function() {
     }
 }
 
+Game.prototype.wrap = function(pos) {
+    
+}
 
 
 module.exports = Game;

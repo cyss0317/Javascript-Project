@@ -7,6 +7,7 @@ function MovingObject(options) {
         this.radius = 25;
         this.pos =  Util.randomPosition();
         this.game = options.game
+        
 }
 
 MovingObject.prototype.randomLeftCharacter = function() {
@@ -22,19 +23,9 @@ MovingObject.prototype.randomRightCharacter = function () {
 
 MovingObject.prototype.draw = function(ctx){
 
-    // let size = this.radius
+
     // this.animal.onload = () => ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);
     ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);
-    // ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);
-    // ctx.beginPath();
-    // ctx.arc(
-    //     this.pos[0], this.pos[1], 5, 0, 2 * Math.PI, true
-    // );
-    // ctx.fill();
-    // this.animal.onload = drawImageActualSize;
-    // this.animal.naturalWidth = canvas.width;
-    // this.animal.naturalHeight = canvas.height;
-    // ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);
 
 };
 
@@ -51,6 +42,7 @@ MovingObject.prototype.isCollidedWith = function(otherObject){
     let distance = Util.distance(this, otherObject);
     return distance < (this.radius + otherObject.radius)
 }
+
 
 
 
