@@ -4,28 +4,44 @@ function MovingObject(options) {
         this.animal = new Image();
         this.animal.src = options.url;
         this.vel = options.vel;
-        this.pos = options.pos;
+        this.pos = options.pos || Util.randomPosition();
         this.game = options.game
 }
 
-MovingObject.prototype.collideWith = function(otherObject){
+MovingObject.prototype.randomLeftCharacter = function() {
+    let characters = ['../../img/Bear_left.png', '../../img/Wolf_left2.png'];
+    return characters[Math.floor(Math.random() * characters.length)];
+}
 
-};
 
-MovingObject.prototype.draw = function(ctx){
-     ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);
+MovingObject.prototype.randomRightCharacter = function () {
+    let characters = ['../../img/Bear_right.png', '../../img/Wolf_right.png'];
+    return characters[Math.floor(Math.random() * characters.length)];
+}
+
+MovingObject.prototype.draw = function(canvas, ctx){
+
+    this.animal.onload = () => ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);
+    
+    // this.animal.onload = drawImageActualSize;
+    // this.animal.naturalWidth = canvas.width;
+    // this.animal.naturalHeight = canvas.height;
+    // ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);
+
 };
 
 //same as requestAnimationFrame();
 const NORMAL_FRAME_TIME_DELTA = 1000/60;
 MovingObject.prototype.move = function(timeDelta){
-    const velocityScale = timeDelta/ NORMAL_FRAME_TIME_DELTA,
-
-    this.pos[0] = this.pos[0] + this.vel[0] * velocityScale;
-    this.pos[1] = this.pos[1] + this.vel[1] * velocityScale;
-        
+    const velocityScale = timeDelta/ NORMAL_FRAME_TIME_DELTA;
+    
+    this.pos = [this.pos[0] + this.vel[0] * velocityScale,this.pos[1] + this.vel[1] * velocityScale];
 }
 
+
+MovingObject.prototype.collideWith = function(otherObject){
+
+};
 MovingObject.prototype.remove = function(){
     this.game.remove();
 }
