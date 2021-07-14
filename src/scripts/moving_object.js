@@ -33,6 +33,10 @@ MovingObject.prototype.draw = function(ctx){
 
 MovingObject.prototype.move = function(){
     this.pos = [this.pos[0] + this.dir[0] ,this.pos[1] + this.dir[1] ];
+
+    if (this.game.isOutOfBound(this.pos)){
+        this.pos = this.game.wrap(this.pos);
+    } 
 }
 
 

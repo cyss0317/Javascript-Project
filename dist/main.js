@@ -13,20 +13,94 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ (function() {
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
-eval("throw new Error(\"Module parse failed: Unexpected token (10:4)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n|     const can\\n| \\n>     const mo = new MovingObject({\\n|         url: './img/Wolf-right.png',\\n|         pos: [100, 100],\");\n\n//# sourceURL=webpack://Javascript-Project/./src/index.js?");
+eval("// const MovingObject = require(\"./scripts/moving_object.js\");\nconst Game = __webpack_require__(/*! ./scripts/game.js */ \"./src/scripts/game.js\");\nconst Util = __webpack_require__(/*! ./scripts/util.js */ \"./src/scripts/util.js\")\nconst GameView = __webpack_require__(/*! ./scripts/game_view.js */ \"./src/scripts/game_view.js\");\nconst Chicken = __webpack_require__(/*! ./scripts/chicken.js */ \"./src/scripts/chicken.js\");\n\ndocument.addEventListener(\"DOMContentLoaded\", function() {\n    const canvas = document.getElementById(\"game-canvas\");\n    const ctx = canvas.getContext('2d');\n    ctx.canvas.height = 550;\n    ctx.canvas.width = 450;\n\n\n    const game = new Game();\n    new GameView(game, ctx).start();\n    // const chicken = new Chicken();\n    // chicken.draw(ctx);\n\n})\n\n\n\n//# sourceURL=webpack://Javascript-Project/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/scripts/chicken.js":
+/*!********************************!*\
+  !*** ./src/scripts/chicken.js ***!
+  \********************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval("const Util = __webpack_require__(/*! ./util.js */ \"./src/scripts/util.js\");\nconst MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/scripts/moving_object.js\");\n\nfunction Chicken(options) {\n    this.pos = [300 ,400];\n    this.animal = new Image();\n    this.animal.src = './img/Chicken_front.png'\n    this.radius = 25;\n}\n\nUtil.inherits(Chicken, MovingObject);\n\n\nChicken.prototype.move = function() {\n    if ( this.pos[0] -= 1 ){\n        this.animal.src = './img/Chicken_left_move.png'\n    } else if ( this.pos[0] += 1){\n        this.animal.src = './img/Chicken_right_move.png'\n    } else if (this.pos[1] -= 1) {\n        this.animal.src = './img/Chicken_front.png'\n    }\n}\n\n\n\nmodule.exports = Chicken;\n\n//# sourceURL=webpack://Javascript-Project/./src/scripts/chicken.js?");
+
+/***/ }),
+
+/***/ "./src/scripts/game.js":
+/*!*****************************!*\
+  !*** ./src/scripts/game.js ***!
+  \*****************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval("const Chicken = __webpack_require__(/*! ./chicken.js */ \"./src/scripts/chicken.js\");\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/scripts/moving_object.js\");\nconst Util = __webpack_require__(/*! ./util */ \"./src/scripts/util.js\");\n\nfunction Game() {\n    this.movingObjects = [];\n    this.addMovingObject();\n    this.chicken = new Chicken();\n}\n\nGame.DIM_X = 450;\nGame.DIM_Y = 550;\nGame.NUM_MOVINGOBJECTS = 30;\n\n\n\nGame.prototype.addMovingObject = function(){\n    for (let i = 0; i < Game.NUM_MOVINGOBJECTS; i++) {   \n        let character = new MovingObject({game: this});\n\n        if( character.pos[0] === 650) {\n            character.animal.src = character.randomLeftCharacter();\n            character.dir = [-(Util.randomSpeed()), 0];\n        } else {\n            character.animal.src = character.randomRightCharacter();\n            character.dir = [Util.randomSpeed(), 0];\n        }\n        this.movingObjects.push(character);\n    }\n}\n\nGame.prototype.draw = function(ctx) {\n    ctx.clearRect( 0, 0, Game.DIM_X, Game.DIM_Y);\n    for (let i = 0; i < this.movingObjects.length; i++) {\n        this.movingObjects[i].draw(ctx);\n    }\n    this.chicken.draw(ctx);\n}\n\nGame.prototype.moveObjects = function() {\n    for (let i = 0; i < this.movingObjects.length; i++) {\n        this.movingObjects[i].move();\n    }\n}\n\nGame.prototype.wrap = function(pos) {\n    return [\n        Util.wrap(pos[0], Game.DIM_X), pos[1]\n    ];\n}\n\nGame.prototype.isOutOfBound = function(pos) {\n    return (pos[0] < -50 || pos[0] > 650);\n}\n\n\nmodule.exports = Game;\n\n//# sourceURL=webpack://Javascript-Project/./src/scripts/game.js?");
+
+/***/ }),
+
+/***/ "./src/scripts/game_view.js":
+/*!**********************************!*\
+  !*** ./src/scripts/game_view.js ***!
+  \**********************************/
+/***/ (function(module) {
+
+eval("function GameView(game, ctx) {\n    this.ctx = ctx;\n    this.game = game;\n}\n\n\nGameView.prototype.start = function() {\n    setInterval( () => { \n        this.game.moveObjects();\n        this.game.chicken.move();\n        this.game.draw(this.ctx);\n    }, 10);\n\n};\n\nmodule.exports = GameView;\n\n//# sourceURL=webpack://Javascript-Project/./src/scripts/game_view.js?");
+
+/***/ }),
+
+/***/ "./src/scripts/moving_object.js":
+/*!**************************************!*\
+  !*** ./src/scripts/moving_object.js ***!
+  \**************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+eval("const Util = __webpack_require__(/*! ./util.js */ \"./src/scripts/util.js\");\n\nfunction MovingObject(options) {\n        this.animal = new Image();\n        // this.animal.src = options.url;\n        // this.dir = options.dir;\n        this.radius = 25;\n        this.pos =  Util.randomPosition();\n        this.game = options.game\n        \n}\n\nMovingObject.prototype.randomLeftCharacter = function() {\n    let characters = ['./img/Bear_left.png', './img/Wolf_left.png'];\n    return characters[Math.floor(Math.random() * characters.length)];\n}\n\n\nMovingObject.prototype.randomRightCharacter = function () {\n    let characters = ['./img/Bear_right.png', './img/Wolf_right.png'];\n    return characters[Math.floor(Math.random() * characters.length)];\n}\n\nMovingObject.prototype.draw = function(ctx){\n\n\n    // this.animal.onload = () => ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);\n    ctx.drawImage(this.animal, this.pos[0], this.pos[1], 50, 50);\n\n};\n\n\n\nMovingObject.prototype.move = function(){\n    this.pos = [this.pos[0] + this.dir[0] ,this.pos[1] + this.dir[1] ];\n\n    if (this.game.isOutOfBound(this.pos)){\n        this.pos = this.game.wrap(this.pos);\n    } \n}\n\n\nMovingObject.prototype.isCollidedWith = function(otherObject){\n    // posotion, width 50, height 50\n\n    let distance = Util.distance(this, otherObject);\n    return distance < (this.radius + otherObject.radius)\n}\n\n\n\n\n\n\nmodule.exports = MovingObject;\n\n\n    // movingRightImg(){\n    //     let characters = [bearRight, wolfRight];\n    //     return characters[Math.floor(Math.random * characters.length)];\n    // }\n    // movingLeftImg() {\n    //     let characters = [bearLeft, wolfLeft];\n    //     return characters[Math.floor(Math.random * characters.length)];\n    // }\n    \n    \n    // move(ctx) {\n        \n    //     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);\n    //     const randomY = Util.randomPosition();\n    //     const randomX = Util.randomX();\n    //     // console.log(animal);\n    //     //ctx.drawImage(image, sx, sy, sw, sh , dx, dy, dw, dh)\n    //     // ctx.drawImage(animal, x, 50, 50, 50 );\n    \n    //     //move right to left   \n    //     if ( randomX === 650 ) {\n\n    //         ctx.drawImage(this.animal, randomX, randomY, 50, 50);\n    //         x--;      \n    //         requestAnimationFrame(() => this.move(ctx));  \n    //         }\n    //     } else {\n    //         //move left to right\n    //         for (let x = randomX; x < 650; x++) {\n    //             ctx.drawImage(this.animal, randomX, randomY, 50, 50);\n    //             requestAnimationFrame(() => this.move(ctx));\n    //         }\n    //     }\n    // }\n    \n\n\n\n\n//random images moving to the right\n\n\n\n//# sourceURL=webpack://Javascript-Project/./src/scripts/moving_object.js?");
+
+/***/ }),
+
+/***/ "./src/scripts/util.js":
+/*!*****************************!*\
+  !*** ./src/scripts/util.js ***!
+  \*****************************/
+/***/ (function(module) {
+
+eval("\n\nconst Util = {\n    inherits(ChildClass, ParentClass) {\n        function Surrogate () {};\n        Surrogate.prototype = ParentClass.prototype;\n        ChildClass.prototype = new Surrogate();\n        ChildClass.prototype.constructor = ChildClass.prototype;\n    },\n    \n    randomY() {\n        //for x and y\n        const numbers = [0,1,3,4,5,6,7,8,9];\n        const result = numbers[Math.floor(Math.random() * numbers.length)] * 50;\n        return result;\n    },\n    \n    randomX() {\n        let x = [-50, 650];\n        return x[Math.floor(Math.random() * x.length)];\n    },\n    \n    randomPosition(){\n        let result = [this.randomX(), this.randomY()];\n        return result;\n    },\n\n    randomSpeed() {\n        const speed = [1,1.5];\n        let result = Math.random() * speed[Math.floor(Math.random() * speed.length)];\n        if (result < 0.1) {\n            result += 0.3;\n        } \n        return result; \n    },\n\n    distance(obj1, obj2){\n        let result = Math.sqrt(Math.pos(obj1.pos[0] - obj2.pos[0], 2) + Math.pow(obj1.pos[1] - obj2.pos[1], 2));\n        return result;\n    },\n\n     wrap(x, maxGrid) {\n        if (x < 0) {\n            //      \n            return maxGrid\n        } else  {\n            return 0;\n        } \n    }\n}\n\n\nmodule.exports = Util;\n\n//# sourceURL=webpack://Javascript-Project/./src/scripts/util.js?");
 
 /***/ })
 
 /******/ 	});
 /************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/index.js"]();
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()
 ;

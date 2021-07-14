@@ -5,12 +5,12 @@ const Util = {
         function Surrogate () {};
         Surrogate.prototype = ParentClass.prototype;
         ChildClass.prototype = new Surrogate();
-        ChildClass.prototype.constructor = this.prototype;
+        ChildClass.prototype.constructor = ChildClass.prototype;
     },
     
     randomY() {
         //for x and y
-        const numbers = [1,2,4,5,6,7,8,9,10,11,12];
+        const numbers = [0,1,3,4,5,6,7,8,9];
         const result = numbers[Math.floor(Math.random() * numbers.length)] * 50;
         return result;
     },
@@ -26,8 +26,11 @@ const Util = {
     },
 
     randomSpeed() {
-        const speed = [1,2];
-        let result = Math.random() * Math.floor(Math.random() * speed.length);
+        const speed = [1,1.5];
+        let result = Math.random() * speed[Math.floor(Math.random() * speed.length)];
+        if (result < 0.1) {
+            result += 0.3;
+        } 
         return result; 
     },
 
@@ -36,14 +39,13 @@ const Util = {
         return result;
     },
 
-     wrap(xOrY, maxGrid) {
-        if (xOrY < 0) {
-            return maxGrid - (xOrY % maxGrid);
-        } else if (xOrY > maxGrid) {
-            return xOrY % maxGrid;
-        } else {
-            return xOrY;
-        }
+     wrap(x, maxGrid) {
+        if (x < 0) {
+            //      
+            return maxGrid
+        } else  {
+            return 0;
+        } 
     }
 }
 
