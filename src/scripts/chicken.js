@@ -11,12 +11,12 @@ function Chicken(options) {
 Util.inherits(Chicken, MovingObject);
 
 
-Chicken.prototype.move = function() {
-    if ( this.pos[0] -= 1 ){
+Chicken.prototype.move = function(move) {
+    if ( this.pos[0] -= move[0] ){
         this.animal.src = './img/Chicken_left_move.png'
-    } else if ( this.pos[0] += 1){
+    } else if ( this.pos[0] += move[0]){
         this.animal.src = './img/Chicken_right_move.png'
-    } else if (this.pos[1] -= 1) {
+    } else if (this.pos[1] -= move[1]) {
         this.animal.src = './img/Chicken_front.png'
     }
 }
