@@ -10,29 +10,16 @@ document.addEventListener("DOMContentLoaded", function() {
     ctx.canvas.height = 550;
     ctx.canvas.width = 450;
 
+    const gameStart = new GameView(game, ctx).start();
+
+    const start = document.querySelector("#start-button");
+    start.addEventListener("click", function(){
+        start.gameStart();
+    })
+    
 
     const game = new Game();
-    new GameView(game, ctx).start();
-
-    // game.win();
-    // const chicken = new Chicken();
-    // chicken.draw(ctx);
-    // ctx.rect(0, 0, 50, 50);
-    // ctx.stroke();
-
-    // function move(e){
-    //     if (e.keyCode == 39){
-    //         chicken.pos[0] += 3;
-    //     } else if (e.keyCode == 37) {
-    //         chicken.pos[0] -= 3;
-    //     } else if (e.keyCode == 38){
-    //         chicken.pos[1] -= 3;
-    //     } else if (e.keyCode == 40){
-    //         chicken.pos[1] += 3;
-    //     }
-    // }
-    // document.onkeydown = move;
-
+    
 
 })
 
