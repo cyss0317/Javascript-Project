@@ -13,9 +13,9 @@ GameView.prototype.start = function() {
         this.game.moveObjects();
         this.game.draw(this.ctx);
         if (this.game.checkCollisions()) {
-            this.end(interval);
+            this.game.end(interval);
         }
-        // this.game.win();
+        this.game.win(interval);
         
     }, 10);
 
@@ -24,11 +24,7 @@ GameView.prototype.start = function() {
     // requestAnimationFrame(this.game.draw(this.ctx)
 
 };
-GameView.prototype.end = function(interval){
-    alert("RIP..... press 'okay' to play again");
-    // window.location.reload();
-    clearInterval(interval);
-}
+
 
 GameView.MOVES = {
     w: [0, -25],

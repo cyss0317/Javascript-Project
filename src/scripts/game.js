@@ -12,32 +12,29 @@ function Game() {
 
 Game.DIM_X = 450;
 Game.DIM_Y = 550;
-Game.NUM_MOVINGOBJECTS = 45;
+Game.NUM_MOVINGOBJECTS = 50;
 
-Game.prototype.win = function() {
-    if ( this.chicken.pos[1] < -20 ){
+Game.prototype.win = function(interval) {
+    if ( this.chicken.pos[1] < -30 ){
         alert("YOU DID IT!!!, refresh the page to play again");
-        
+        clearInterval(interval)
     }
+}
+Game.prototype.end = function (interval) {
+    // alert("RIP..... press 'okay' to play again");
+    // window.location.reload();
+    clearInterval(interval);
 }
 
 Game.prototype.checkCollisions = function () {
-    // this.MovingObjects.forEach((object) => {
-    //     if (this.chicken.isCollidedwith(object)) {
-    //         alert("RIP..... press 'okay' to play again");
-    //         window.location.reload();
-    //     }
-    // })
-
-
     for (let i = 0; i < this.movingObjects.length; i++) {
         // this.movingObjects[i].isCollidedWith(this.chicken);
         if (this.movingObjects[i].isCollidedWith(this.chicken) === true) {
-            // alert("RIP..... press 'okay' to play again");
+            alert("RIP..... press 'okay' to play again");
             // window.location.reload();
             return true;
-        } return false;
-    }
+        } 
+    }return false;
 
 }
 

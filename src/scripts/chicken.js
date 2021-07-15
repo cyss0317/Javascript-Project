@@ -6,7 +6,7 @@ function Chicken(options) {
     this.pos = [210 ,500];
     this.animal = new Image();
     this.animal.src = './img/Chicken_front.png'
-    this.radius = 25;
+    this.radius = 14;
 
 }
 
@@ -53,10 +53,10 @@ Chicken.prototype.moves = function(move) {
         this.pos[1] += move[1];
     }
 
-    if ( this.pos[1] < -40 ){
-        alert("YOU WON!!! Press 'okay' to play again")
-        window.location.reload();
-    }
+    // if ( this.pos[1] < -40 ){
+    //     alert("YOU WON!!! Press 'okay' to play again")
+    //     window.location.reload();
+    // }
     //bottom water wall
 
 
