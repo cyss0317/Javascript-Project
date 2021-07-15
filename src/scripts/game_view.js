@@ -21,10 +21,10 @@ GameView.prototype.start = function() {
 };
 
 GameView.MOVES = {
-    w: [0, -20],
-    a: [-20, 0],
-    s: [0, 20],
-    d: [20, 0],
+    w: [0, -25],
+    a: [-25, 0],
+    s: [0, 25],
+    d: [25, 0],
 };
 
 
