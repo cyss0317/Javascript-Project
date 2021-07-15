@@ -54,7 +54,8 @@ Chicken.prototype.moves = function(move) {
     }
 
     if ( this.pos[1] < -40 ){
-        alert("YOU WON!!! Refresh the page to play again!!")
+        alert("YOU WON!!! Press 'okay' to play again")
+        window.location.reload();
     }
     //bottom water wall
 

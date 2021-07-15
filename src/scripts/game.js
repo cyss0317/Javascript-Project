@@ -24,7 +24,7 @@ Game.prototype.win = function() {
 Game.prototype.checkCollisions = function () {
     this.MovingObjects.forEach((object) => {
         if (object.isCollidedwith(this.chicken)) {
-            window.alert("RIP..... refresh the page to play again");
+            window.alert("RIP..... press 'okay' to play again");
         }
     })
 }
