@@ -16,7 +16,7 @@ const Util = {
     },
     
     randomX() {
-        let x = [-50, 650];
+        let x = [-50, 500];
         return x[Math.floor(Math.random() * x.length)];
     },
     

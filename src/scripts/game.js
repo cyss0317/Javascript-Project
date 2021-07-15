@@ -42,7 +42,7 @@ Game.prototype.addMovingObject = function(){
 
     for (let i = 0; i < this.num_movingObjects; i++) {
         let character = new MovingObject({game: this});
-        if( character.pos[0] === 650) {
+        if( character.pos[0] === 500) {
             character.animal.src = character.randomLeftCharacter();
             character.dir = [-(Util.randomSpeed()), 0];
         } else {
