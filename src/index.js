@@ -9,36 +9,37 @@ document.addEventListener("DOMContentLoaded", function() {
     const ctx = canvas.getContext('2d');
     ctx.canvas.height = 550;
     ctx.canvas.width = 450;
-
- 
-
-    const start = document.querySelector("#start-button");
-    start.addEventListener("click", function(){
-        let game = new Game();
-        Game.NUM_MOVINGOBJECTS = 80;
-        let gameView = new GameView(game, ctx);
-        gameView.start();
-    })
-
+    //difficulty buttons
     const easy = document.querySelector('#easy');
-    easy.addEventListener("click", function() {
-        let game = new Game();
-        let gameView = new GameView(game, ctx);
-        gameView.start();
-    })
-
     const medium = document.querySelector('#medium');
-    medium.addEventListener("click", function () {
-        let game = new Game();
+    const hard = document.querySelector('#hard');
+
+
+    easy.addEventListener("click", function() {
+        let game = new Game(20);
         let gameView = new GameView(game, ctx);
         gameView.start();
+        easy.disabled = true;
+        medium.disabled = true;
+        hard.disabled = true;
     })
 
-    const hard = document.querySelector('#hard');
-    hard.addEventListener("click", function () {
-        let game = new Game();
+    medium.addEventListener("click", function () {
+        let game = new Game(50);
         let gameView = new GameView(game, ctx);
         gameView.start();
+        easy.disabled = true;
+        medium.disabled = true;
+        hard.disabled = true;
+    })
+
+    hard.addEventListener("click", function () {
+        let game = new Game(80);
+        let gameView = new GameView(game, ctx);
+        gameView.start();
+        easy.disabled = true;
+        medium.disabled = true;
+        hard.disabled = true;
     })
 })
 
