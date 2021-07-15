@@ -12,7 +12,7 @@ function Game() {
 
 Game.DIM_X = 450;
 Game.DIM_Y = 550;
-Game.NUM_MOVINGOBJECTS = 1;
+Game.NUM_MOVINGOBJECTS = 40;
 
 Game.prototype.win = function(interval) {
     if ( this.chicken.pos[1] < -30 ){
