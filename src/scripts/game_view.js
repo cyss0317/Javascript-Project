@@ -12,7 +12,7 @@ GameView.prototype.start = function() {
         this.game.moveObjects();
         this.game.draw(this.ctx);
         // this.game.checkCollisions();
-        this.game.win();
+        // this.game.win();
         
     }, 10);
     // this.game.moveObjects();

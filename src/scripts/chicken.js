@@ -53,6 +53,9 @@ Chicken.prototype.moves = function(move) {
         this.pos[1] += move[1];
     }
 
+    if ( this.pos[1] < -40 ){
+        alert("YOU WON!!! Refresh the page to play again!!")
+    }
     //bottom water wall
 
 
