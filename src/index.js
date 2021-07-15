@@ -10,13 +10,34 @@ document.addEventListener("DOMContentLoaded", function() {
     ctx.canvas.height = 550;
     ctx.canvas.width = 450;
 
-    const game = new Game();
-    const gameView = new GameView(game, ctx);
+ 
 
     const start = document.querySelector("#start-button");
     start.addEventListener("click", function(){
+        let game = new Game(20);
+        let gameView = new GameView(game, ctx);
         gameView.start();
     })
 
+    const easy = document.querySelector('#easy');
+    easy.addEventListener("click", function() {
+        let game = new Game(20);
+        let gameView = new GameView(game, ctx);
+        gameView.start();
+    })
+
+    const medium = document.querySelector('#medium');
+    medium.addEventListener("click", function () {
+        let game = new Game(40);
+        let gameView = new GameView(game, ctx);
+        gameView.start();
+    })
+
+    const hard = document.querySelector('#hard');
+    hard.addEventListener("click", function () {
+        let game = new Game(70);
+        let gameView = new GameView(game, ctx);
+        gameView.start();
+    })
 })
 
