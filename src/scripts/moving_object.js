@@ -11,13 +11,13 @@ function MovingObject(options) {
 }
 
 MovingObject.prototype.randomLeftCharacter = function() {
-    let characters = ['./img/Bear_left.png', './img/Wolf_left.png'];
+    let characters = ['./img/Bear_left.png', './img/Wolf_left.png', './img/Lion_left.png'];
     return characters[Math.floor(Math.random() * characters.length)];
 }
 
 
 MovingObject.prototype.randomRightCharacter = function () {
-    let characters = ['./img/Bear_right.png', './img/Wolf_right.png'];
+    let characters = ['./img/Bear_right.png', './img/Wolf_right.png', './img/Lion_right.png'];
     return characters[Math.floor(Math.random() * characters.length)];
 }
 

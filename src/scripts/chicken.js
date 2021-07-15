@@ -1,11 +1,13 @@
 const Util = require("./util.js");
 const MovingObject = require('./moving_object');
+const Game = require('./game.js');
 
 function Chicken(options) {
     this.pos = [210 ,500];
     this.animal = new Image();
     this.animal.src = './img/Chicken_front.png'
     this.radius = 25;
+
 }
 
 Util.inherits(Chicken, MovingObject);
@@ -13,20 +15,39 @@ Util.inherits(Chicken, MovingObject);
 
 Chicken.prototype.moves = function(move) {
     //update position
-    let prePos = this.pos;
-    this.pos[0] += move[0];
-    this.pos[1] += move[1];
-
-    if ( prePos[0] > this.pos[0] ){
+    
+    if ( move[0] < 0 ){
         this.animal.src = './img/Chicken_left_move.png'
-    } else if ( prePos[0] < this.pos[0] ){
+    } else if ( move[0] > 0 ){
         this.animal.src = './img/Chicken_right_move.png'
-    } else if ( prePos[1] > this.pos[1] ) {
+    } else if ( move[1] < 0 ) {
         //move step forward
         this.animal.src = './img/Chicken_front.png'
-    } else if ( prePos[1] < this.pos[1] ) {
+    } else if ( move[1] > 0 ) {
         this.animal.src = './img/Chicken_back.png'
     }
+    
+
+    //left wall
+    if ( this.pos[0] + move[0] < 0) {
+        this.pos[0] = 0;
+        //right wall
+    }else if ( this.pos[0] + move[0] > 400){ 
+        this.pos[0] = 400;
+    } else {
+        this.pos[0] += move[0];
+    }
+
+    //top wall
+    if (this.pos[1] + move[1] < 0) {
+        this.pos[1] = 0;
+        //bottom wall
+    } else if (this.pos[1] + move[1] > 500) {
+        this.pos[1] = 500;
+    } else {
+        this.pos[1] += move[1];
+    }
+
 }
 
 
