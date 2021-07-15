@@ -14,28 +14,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const start = document.querySelector("#start-button");
     start.addEventListener("click", function(){
-        let game = new Game(20);
+        let game = new Game();
+        Game.NUM_MOVINGOBJECTS = 80;
         let gameView = new GameView(game, ctx);
         gameView.start();
     })
 
     const easy = document.querySelector('#easy');
     easy.addEventListener("click", function() {
-        let game = new Game(20);
+        let game = new Game();
         let gameView = new GameView(game, ctx);
         gameView.start();
     })
 
     const medium = document.querySelector('#medium');
     medium.addEventListener("click", function () {
-        let game = new Game(40);
+        let game = new Game();
         let gameView = new GameView(game, ctx);
         gameView.start();
     })
 
     const hard = document.querySelector('#hard');
     hard.addEventListener("click", function () {
-        let game = new Game(70);
+        let game = new Game();
         let gameView = new GameView(game, ctx);
         gameView.start();
     })

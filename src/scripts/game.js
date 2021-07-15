@@ -3,17 +3,16 @@ const MovingObject = require("./moving_object.js");
 const Util = require('./util');
 const Croco = require('./croco.js');
 
-function Game(num_movingObjects) {
+function Game() {
     this.movingObjects = [];
     this.addMovingObject();
     this.chicken = new Chicken();
-    this.croco = new Croco();
-    this.num_movingObjects = num_movingObjects;
+    // this.num_movingObjects = num_movingObjects;
 }
 
 Game.DIM_X = 450;
 Game.DIM_Y = 550;
-Game.NUM_MOVINGOBJECTS = 20;
+Game.NUM_MOVINGOBJECTS = 50;
 
 Game.prototype.win = function(interval) {
     if ( this.chicken.pos[1] < -30 ){
