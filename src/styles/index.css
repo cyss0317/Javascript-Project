@@ -2,7 +2,7 @@
 
 #game-canvas {
     border: 5px solid rgba(255, 183, 0, 0.879);
-    background-image: url(/img/Main-map.jpg);
+    background-image: url(/img/Main-map.png);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -16,6 +16,7 @@
     height: 50px;
     animation: block is infinite linear;
 } */
+
 
 body {
     background-image: url(/img/Background.png);

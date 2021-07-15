@@ -1,23 +1,38 @@
 const Chicken = require("./chicken.js");
 const MovingObject = require("./moving_object.js");
 const Util = require('./util');
+const Croco = require('./croco.js');
 
 function Game() {
     this.movingObjects = [];
     this.addMovingObject();
     this.chicken = new Chicken();
+    this.croco = new Croco();
 }
 
 Game.DIM_X = 450;
 Game.DIM_Y = 550;
 Game.NUM_MOVINGOBJECTS = 45;
 
+Game.prototype.win = function() {
+    if ( this.chicken.pos[1] < -20 ){
+        alert("YOU DID IT!!!, refresh the page to play again");
+        
+    }
+}
 
+Game.prototype.checkCollisions = function () {
+    this.MovingObjects.forEach((object) => {
+        if (object.isCollidedwith(this.chicken)) {
+            window.alert("RIP..... refresh the page to play again");
+        }
+    })
+}
 
 Game.prototype.addMovingObject = function(){
     for (let i = 0; i < Game.NUM_MOVINGOBJECTS; i++) {   
         let character = new MovingObject({game: this});
-
+        
         if( character.pos[0] === 650) {
             character.animal.src = character.randomLeftCharacter();
             character.dir = [-(Util.randomSpeed()), 0];
@@ -35,6 +50,8 @@ Game.prototype.draw = function(ctx) {
         this.movingObjects[i].draw(ctx);
     }
     this.chicken.draw(ctx);
+    // this.croco.draw(ctx);
+    
 }
 
 Game.prototype.moveObjects = function() {
@@ -53,13 +70,5 @@ Game.prototype.isOutOfBound = function(pos) {
     return (pos[0] < -50 || pos[0] > 650);
 }
 
-
-MovingObject.prototype.checkCollisions = function () {
-    this.game.MovingObjects.forEach((object) => {
-        if (object.isCollidedwith(this.chicken)) {
-            window.alert("COLLISION");
-        }
-    })
-}
 
 module.exports = Game;

@@ -39,17 +39,32 @@ Chicken.prototype.moves = function(move) {
     }
 
     //top wall
-    if (this.pos[1] + move[1] < 0) {
-        this.pos[1] = 0;
+    // if (this.pos[1] + move[1] < 0) {
+    //     this.pos[1] = 0;
+    if (this.pos[1] + move[1] < 0  && this.pos[0] < 200 ) {
+        this.pos[1] = 20;
+    } else if (this.pos[1] + move[1] < 0 && this.pos[0] > 250) {
+        this.pos[1] = 20;
+    }
         //bottom wall
-    } else if (this.pos[1] + move[1] > 500) {
+    if (this.pos[1] + move[1] > 500) {
         this.pos[1] = 500;
     } else {
         this.pos[1] += move[1];
     }
 
-}
+    //bottom water wall
 
+
+    //top water wall
+    // if (this.pos[1] + move[1] > 100 && this.pos[0] < 200) {
+    //     this.pos[1] = 150;
+    // } else if (this.pos[1] + move[1] < 150 && this.pos[0] > 250) {
+    //     this.pos[1] = 150;
+    // }
+  
+
+}
 
 
 module.exports = Chicken;

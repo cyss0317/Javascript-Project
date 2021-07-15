@@ -11,9 +11,13 @@ GameView.prototype.start = function() {
     setInterval( () => { 
         this.game.moveObjects();
         this.game.draw(this.ctx);
+        // this.game.checkCollisions();
+        this.game.win();
+        
     }, 10);
     // this.game.moveObjects();
     // requestAnimationFrame(this.game.draw(this.ctx)
+
 };
 
 GameView.MOVES = {
