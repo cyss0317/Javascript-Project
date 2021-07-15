@@ -51,7 +51,6 @@ MovingObject.prototype.isCollidedWith = function(otherObject){
 
 
 
-
 module.exports = MovingObject;
 
 

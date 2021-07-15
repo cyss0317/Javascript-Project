@@ -12,7 +12,8 @@ GameView.prototype.start = function() {
         this.game.moveObjects();
         this.game.draw(this.ctx);
     }, 10);
-    
+    // this.game.moveObjects();
+    // requestAnimationFrame(this.game.draw(this.ctx)
 };
 
 GameView.MOVES = {

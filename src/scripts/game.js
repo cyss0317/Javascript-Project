@@ -10,7 +10,7 @@ function Game() {
 
 Game.DIM_X = 450;
 Game.DIM_Y = 550;
-Game.NUM_MOVINGOBJECTS = 40;
+Game.NUM_MOVINGOBJECTS = 45;
 
 
 
@@ -53,5 +53,13 @@ Game.prototype.isOutOfBound = function(pos) {
     return (pos[0] < -50 || pos[0] > 650);
 }
 
+
+MovingObject.prototype.checkCollisions = function () {
+    this.game.MovingObjects.forEach((object) => {
+        if (object.isCollidedwith(this.chicken)) {
+            window.alert("COLLISION");
+        }
+    })
+}
 
 module.exports = Game;
