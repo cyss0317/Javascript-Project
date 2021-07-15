@@ -22,11 +22,23 @@ Game.prototype.win = function() {
 }
 
 Game.prototype.checkCollisions = function () {
-    this.MovingObjects.forEach((object) => {
-        if (object.isCollidedwith(this.chicken)) {
-            window.alert("RIP..... press 'okay' to play again");
-        }
-    })
+    // this.MovingObjects.forEach((object) => {
+    //     if (this.chicken.isCollidedwith(object)) {
+    //         alert("RIP..... press 'okay' to play again");
+    //         window.location.reload();
+    //     }
+    // })
+
+
+    for (let i = 0; i < this.movingObjects.length; i++) {
+        // this.movingObjects[i].isCollidedWith(this.chicken);
+        if (this.movingObjects[i].isCollidedWith(this.chicken) === true) {
+            // alert("RIP..... press 'okay' to play again");
+            // window.location.reload();
+            return true;
+        } return false;
+    }
+
 }
 
 Game.prototype.addMovingObject = function(){

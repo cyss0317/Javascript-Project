@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const game = new Game();
     new GameView(game, ctx).start();
 
-    game.win();
+    // game.win();
     // const chicken = new Chicken();
     // chicken.draw(ctx);
     // ctx.rect(0, 0, 50, 50);

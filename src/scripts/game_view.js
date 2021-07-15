@@ -1,4 +1,5 @@
-const Chicken = require('./chicken.js')
+const Chicken = require('./chicken.js');
+const Game = require('./game.js');
 
 function GameView(game, ctx) {
     this.ctx = ctx;
@@ -8,17 +9,26 @@ function GameView(game, ctx) {
 
 GameView.prototype.start = function() {
     this.bindKeyHandlers();
-    setInterval( () => { 
+    const interval = setInterval( () => { 
         this.game.moveObjects();
         this.game.draw(this.ctx);
-        // this.game.checkCollisions();
+        if (this.game.checkCollisions()) {
+            this.end(interval);
+        }
         // this.game.win();
         
     }, 10);
+
+
     // this.game.moveObjects();
     // requestAnimationFrame(this.game.draw(this.ctx)
 
 };
+GameView.prototype.end = function(interval){
+    alert("RIP..... press 'okay' to play again");
+    // window.location.reload();
+    clearInterval(interval);
+}
 
 GameView.MOVES = {
     w: [0, -25],

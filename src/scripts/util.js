@@ -35,7 +35,7 @@ const Util = {
     },
 
     distance(obj1, obj2){
-        let result = Math.sqrt(Math.pos(obj1.pos[0] - obj2.pos[0], 2) + Math.pow(obj1.pos[1] - obj2.pos[1], 2));
+        let result = Math.sqrt(Math.pow(obj1.pos[0] - obj2.pos[0], 2) + Math.pow(obj1.pos[1] - obj2.pos[1], 2));
         return result;
     },
 

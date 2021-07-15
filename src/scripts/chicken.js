@@ -42,11 +42,11 @@ Chicken.prototype.moves = function(move) {
     // if (this.pos[1] + move[1] < 0) {
     //     this.pos[1] = 0;
     if (this.pos[1] + move[1] < 0  && this.pos[0] < 200 ) {
-        this.pos[1] = 20;
-    } else if (this.pos[1] + move[1] < 0 && this.pos[0] > 250) {
-        this.pos[1] = 20;
+        this.pos[1] = 25;
+    } else if (this.pos[1] + move[1] <0 && this.pos[0] > 250) {
+        this.pos[1] = 25;
     }
-        //bottom wall
+        //bottom wallddd
     if (this.pos[1] + move[1] > 500) {
         this.pos[1] = 500;
     } else {
