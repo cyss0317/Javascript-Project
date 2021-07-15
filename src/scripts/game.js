@@ -10,7 +10,7 @@ function Game() {
 
 Game.DIM_X = 450;
 Game.DIM_Y = 550;
-Game.NUM_MOVINGOBJECTS = 1;
+Game.NUM_MOVINGOBJECTS = 40;
 
 
 
