@@ -10,16 +10,13 @@ document.addEventListener("DOMContentLoaded", function() {
     ctx.canvas.height = 550;
     ctx.canvas.width = 450;
 
-    const gameStart = new GameView(game, ctx).start();
+    const game = new Game();
+    const gameView = new GameView(game, ctx);
 
     const start = document.querySelector("#start-button");
     start.addEventListener("click", function(){
-        start.gameStart();
+        gameView.start();
     })
-    
-
-    const game = new Game();
-    
 
 })
 

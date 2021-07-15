@@ -44,9 +44,6 @@ MovingObject.prototype.isCollidedWith = function(otherObject){
     // posotion, width 50, height 50
 
     let distance = Util.distance(this, otherObject);
-    console.log(distance);
-    console.log(this.radius);
-    console.log(otherObject.radius);
     return distance < (this.radius + otherObject.radius)
 }
 
