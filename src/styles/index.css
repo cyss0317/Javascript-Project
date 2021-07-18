@@ -1,9 +1,15 @@
-
+* {
+        border-radius: 8px;
+        margin: 0;
+        padding: 0;
+        font-family: 'Indie Flower', cursive;
+}
 
 #game-canvas {
     border: 5px solid rgba(255, 183, 0, 0.879);
     background-image: url('https://github.com/cyss0317/Javascript-Project/blob/main/img/Main-map.png?raw=true');
     position: absolute;
+    float: top;
     top: 50%;
     left: 50%;
     transform:  translate(-50%, -50%);
@@ -12,36 +18,131 @@
 }
 
 .radio-buttons {
+    position: absolute;
+
     display: flex;
-    height: 180px;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     justify-content: center;
     align-items: center;
 }
 
-#easy {
+/* #choose-diff {
+    position: relative;
+    top: 10px;
+
+} */
+
+#easy, #medium, #hard {
     width: 100px;
     height: 60px;
     border: 5px solid rgb(247, 170, 3);
+    border-radius: 8px;
     margin: 5px;
+    font-size: 30px;
+    font-weight: bold;
 }
 
-#medium {
-    width: 100px;
-    height: 60px;
-    border: 5px solid rgb(247, 170, 3);
-    margin: 5px;
-}
-#hard {
-    width: 100px;
-    height: 60px;
-    border: 5px solid rgb(247, 170, 3);
-    margin: 5px;
-}
 
+#choose-diff {
+    
+}
 
 body {
     background-image: url('https://github.com/cyss0317/Javascript-Project/blob/main/img/Background.png?raw=true');
-
+     font-family: 'Indie Flower', cursive;
     /* background-image: url(/img/Chicken_right_move.png); */
     
+}
+
+.sotry-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.direction {
+        /* margin-top: 50%;
+        margin-left: 50px; */
+    /* min-width: 50px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 3%;
+    margin-left: 3%;
+    width: 30%;
+    height: 650px;
+    background-color: rgba(200, 206, 192, 0.836);
+    border: 2px solid rgb(247, 170, 3);
+    text-align: center;
+}
+
+
+
+.direction * {
+    font-size: 30px;
+    /* margin-top: 20px; */
+    padding-left: 10px; 
+    padding-right: 10px;
+    
+}
+
+#choose-diff, #direction-head {
+    font-size: 45px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.keyboard  {
+    text-align: center;
+}
+
+.keyboard > p {
+    margin: 15px;
+}
+
+.story{
+    display: flex;
+    flex-direction: column;
+    margin-top: -37%;
+    margin-left: 67%;
+    width: 30%;
+    height: 650px;
+    background-color: rgba(200, 206, 192, 0.836);
+    border: 2px solid rgb(247, 170, 3);
+    text-align: center;
+}
+
+#story-head {
+    margin-top: 8%;
+    font-size: 45px;
+    text-decoration: underline;
+}
+
+#story-content {
+    margin-top: 30px;
+    font-size: 3vh;
+    padding: 20px;
+}
+
+.navbars {
+    width: 88%;
+    margin: auto;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-family: 'Indie Flower', cursive;
+    font-size: 25px;
+}
+
+.navbars ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.navbars ul li a {
+    text-decoration: none;
+    color: black;
 }

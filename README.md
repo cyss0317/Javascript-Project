@@ -16,12 +16,11 @@ Functionality
 
     Functions                              Importance Level
     1. Object moving with direction             10
-    2. Object collision to gameover             10
+    2. Object collision detection               10
     3. User interaction with keyboard arrow buttons  10
-    4. Store User's data and append     3
-    5. User can choose the difficulty of the game   5
-    6. Place extra chicken in random place, if your chicken picks up that chicken, you can double the score   8
-    7. Play music, users can puase or play.
+    4. User can choose the difficulty of the game   8
+    5. Place extra chicken in random place, if your chicken picks up that chicken, you can double the score   2
+    6. Play music, users can puase or play.  2
 
 
 
