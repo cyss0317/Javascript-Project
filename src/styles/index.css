@@ -146,3 +146,10 @@ body {
     text-decoration: none;
     color: black;
 }
+
+footer {
+    position: fixed;
+    margin-left: 81%;
+    font-size: 30px;
+    bottom: 2%;
+}
