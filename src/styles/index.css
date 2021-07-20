@@ -104,7 +104,8 @@ body {
 .story{
     display: flex;
     flex-direction: column;
-    margin-top: -37%;
+    
+    margin-top: -44%;
     margin-left: 67%;
     width: 30%;
     height: 650px;
