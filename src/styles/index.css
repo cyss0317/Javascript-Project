@@ -5,26 +5,34 @@
         font-family: 'Indie Flower', cursive;
 }
 
+.game-canvas{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
 #game-canvas {
     border: 5px solid rgba(255, 183, 0, 0.879);
     background-image: url('https://github.com/cyss0317/Javascript-Project/blob/main/img/Main-map.png?raw=true');
-    position: absolute;
+ 
+    /* position: absolute;
     float: top;
     top: 50%;
-    left: 50%;
-    transform:  translate(-50%, -50%);
+    left: 50%; */
+    /* transform:  translate(-50%, -50%); */
     /* width: 450px;
     height: 550px; */
 }
 
 .radio-buttons {
-    position: absolute;
-
+    /* position: absolute; */
+/* 
     display: flex;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
-    justify-content: center;
+    justify-content: center; */
     align-items: center;
 }
 
@@ -56,22 +64,20 @@ body {
     
 }
 
-.sotry-container {
+.story-container {
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
+    
 }
 
 .direction {
         /* margin-top: 50%;
         margin-left: 50px; */
     /* min-width: 50px; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin-top: 3%;
-    margin-left: 3%;
-    width: 30%;
-    height: 650px;
+
+
+
     background-color: rgba(200, 206, 192, 0.836);
     border: 2px solid rgb(247, 170, 3);
     text-align: center;
@@ -79,13 +85,31 @@ body {
 
 
 
-.direction * {
+.direction  {
+    display: flex;
+    flex-direction: column;
     font-size: 30px;
+
     /* margin-top: 20px; */
     padding-left: 10px; 
     padding-right: 10px;
     
 }
+.direction-container{
+    width: 30%;
+}
+.story {
+    width: 30%;
+}
+
+.direction {
+    /* width: 40%; */
+    height: 650px;
+    margin-left: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 
 #choose-diff, #direction-head {
     font-size: 45px;
@@ -102,16 +126,15 @@ body {
 }
 
 .story{
-    display: flex;
-    flex-direction: column;
-    
-    margin-top: -44%;
-    margin-left: 67%;
-    width: 30%;
-    height: 650px;
+
+
+    margin-right: 50px;
     background-color: rgba(200, 206, 192, 0.836);
     border: 2px solid rgb(247, 170, 3);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 #story-head {
@@ -120,8 +143,10 @@ body {
     text-decoration: underline;
 }
 
+
+
 #story-content {
-    margin-top: 30px;
+
     font-size: 3vh;
     padding: 20px;
 }
