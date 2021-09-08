@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const easy = document.querySelector('#easy');
     const medium = document.querySelector('#medium');
     const hard = document.querySelector('#hard');
+    const music = document.querySelector("#audio")
 
 
     easy.addEventListener("click", function() {
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         easy.disabled = true;
         medium.disabled = true;
         hard.disabled = true;
+        music.play
     })
 
     medium.addEventListener("click", function () {

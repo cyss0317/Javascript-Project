@@ -60,12 +60,12 @@ Chicken.prototype.moves = function(move) {
     //bottom water wall
 
 
-    //top water wall
-    // if (this.pos[1] + move[1] > 100 && this.pos[0] < 200) {
-    //     this.pos[1] = 150;
-    // } else if (this.pos[1] + move[1] < 150 && this.pos[0] > 250) {
-    //     this.pos[1] = 150;
-    // }
+    // top water wall
+    if (this.pos[1] + move[1] > 100 && this.pos[0] < 200) {
+        this.pos[1] = 150;
+    } else if (this.pos[1] + move[1] < 150 && this.pos[0] > 250) {
+        this.pos[1] = 150;
+    }
   
 
 }
