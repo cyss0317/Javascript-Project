@@ -232,3 +232,15 @@ footer {
     font-size: 30px;
     bottom: 2%;
 }
+
+#nav-buttons:hover{
+    transform: scale(1.05);
+    transition: .1s;
+    cursor: pointer;
+}
+
+#nav-buttons:active{
+    transform: scale(0.95);
+    transition: .1s;
+    cursor: pointer;
+}
