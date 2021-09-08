@@ -4,7 +4,7 @@ function MovingObject(options) {
         this.animal = new Image();
         // this.animal.src = options.url;
         // this.dir = options.dir;
-        this.radius = 15;
+        this.radius = 14;
         this.pos =  Util.randomPosition();
         this.game = options.game
         

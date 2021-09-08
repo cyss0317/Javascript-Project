@@ -29,7 +29,7 @@ const Util = {
         const speed = [1,1.5];
         let result = Math.random() * speed[Math.floor(Math.random() * speed.length)];
         if (result < 0.1) {
-            result += 0.3;
+            return result += 0.6;
         } 
         return result; 
     },
