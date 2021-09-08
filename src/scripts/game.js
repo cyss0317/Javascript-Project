@@ -62,6 +62,21 @@ Game.prototype.draw = function(ctx) {
     // this.croco.draw(ctx);
     
 }
+pausePlatform = this.add.sprite(player.x - 5, player.y + 13); 
+pausePlatform.body.immovable = true; 
+pausePlatform.collideWorldBounds = true; 
+pausePlatform.allowGravity = false;
+
+//invisible wall
+// Game.prototype.draw = function (ctx) {
+//     ctx.clearRect(0, 0, 200, 250);
+//     for (let i = 0; i < this.movingObjects.length; i++) {
+//         this.movingObjects[i].draw(ctx);
+//     }
+//     this.chicken.draw(ctx);
+//     // this.croco.draw(ctx);
+
+// }
 
 Game.prototype.moveObjects = function() {
     for (let i = 0; i < this.movingObjects.length; i++) {

@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     easy.addEventListener("click", function() {
-        let game = new Game(20);
+        let game = new Game(0);
         let gameView = new GameView(game, ctx);
         gameView.start();
         easy.disabled = true;
