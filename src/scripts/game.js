@@ -16,7 +16,7 @@ Game.DIM_Y = 550;
 // Game.NUM_MOVINGOBJECTS = 50;
 
 Game.prototype.win = function(interval) {
-    if ( this.chicken.pos[1] < 0 ){
+    if ( this.chicken.pos[1] < 5 &&  200 < this.chicken.pos[0] < 250 ){
         clearInterval(interval);
         alert("YOU DID IT!!!, press 'okay' to play again");
         window.location.reload();
@@ -62,10 +62,10 @@ Game.prototype.draw = function(ctx) {
     // this.croco.draw(ctx);
     
 }
-pausePlatform = this.add.sprite(player.x - 5, player.y + 13); 
-pausePlatform.body.immovable = true; 
-pausePlatform.collideWorldBounds = true; 
-pausePlatform.allowGravity = false;
+// pausePlatform = this.add.sprite(player.x - 5, player.y + 13); 
+// pausePlatform.body.immovable = true; 
+// pausePlatform.collideWorldBounds = true; 
+// pausePlatform.allowGravity = false;
 
 //invisible wall
 // Game.prototype.draw = function (ctx) {
