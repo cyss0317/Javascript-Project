@@ -249,9 +249,9 @@ audio::-webkit-media-controls-enclosure {
     text-decoration: none;
     color: black;
 }
-*{
+/* *{
     overflow: hidden;
-}
+} */
 
 footer {
     position: fixed;
@@ -275,10 +275,11 @@ footer {
 
 #modal-background{
     transition:all 0.4s linear;
+    margin-bottom: -102%;
     position: relative;
-    width: 450px;
-    height: 550px;
-    top: -47%;
+    width: 460px;
+    height: 560px;
+    top: -77%;
     /* top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); */
