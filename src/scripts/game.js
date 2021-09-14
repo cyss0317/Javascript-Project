@@ -23,9 +23,11 @@ Game.prototype.win = function(interval) {
     }
 }
 Game.prototype.end = function (interval) {
+    const modal = document.getElementById("modal-background")
     clearInterval(interval);
-    alert("RIP..... press 'okay' to play again");
-    window.location.reload();
+    modal.style.display = "block"
+    // alert("RIP..... press 'okay' to play again");
+    // window.location.reload();
 }
 
 Game.prototype.checkCollisions = function () {

@@ -244,29 +244,29 @@ footer {
     cursor: pointer;
 }
 
-.modal-background{
+#modal-background{
 
     position: relative;
     width: 450px;
     height: 550px;
-    top: -46%;
+    top: -47%;
     /* top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); */
-    display: block;
+    display: none;
     /* justify-content: center;
     align-items: center; */
     background: rgba(0, 0, 0, 0.7);
     z-index: 10;
 }
 
-.modal-background p {
+#modal-background p {
     color: white;
     font-size: 60px;
     text-align: center;
     margin-top: 40px ;
 }
-.modal-background a {
+#modal-background a {
     text-align: center;
     align-self: center;
     justify-content: center;

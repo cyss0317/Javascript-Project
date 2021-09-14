@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         easy.disabled = true;
         medium.disabled = true;
         hard.disabled = true;
-        music.checked = true;
+
     })
 
     medium.addEventListener("click", function () {
