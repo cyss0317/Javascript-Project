@@ -16,12 +16,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const music = document.querySelector("#audio")
     const playAgain = document.querySelector("#play-again")
     const modal = document.querySelector("#modal-background")
-    
+
     playAgain.addEventListener("click", function(){
         easy.disabled = false;
         medium.disabled = false;
         hard.disabled = false;
-        // modal.style.display = "none"
         playAgain.style.display = "none"
     })
 

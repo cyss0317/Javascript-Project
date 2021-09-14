@@ -245,7 +245,7 @@ footer {
 }
 
 #modal-background{
-
+    transition:all 0.4s linear;
     position: relative;
     width: 450px;
     height: 550px;

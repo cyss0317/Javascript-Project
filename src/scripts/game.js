@@ -16,16 +16,24 @@ Game.DIM_Y = 550;
 // Game.NUM_MOVINGOBJECTS = 50;
 
 Game.prototype.win = function(interval) {
+    const modal = document.getElementById("modal-background")
+    const playAgain = document.getElementById("play-again")
     if ( this.chicken.pos[1] < 5 &&  this.chicken.pos[0] < 250 && this.chicken.pos[0] > 200 ){
         clearInterval(interval);
-        alert("YOU DID IT!!!, press 'okay' to play again");
-        window.location.reload();
+        modal.style.display = "block"
+        playAgain.style.display = "block"
     }
 }
 Game.prototype.end = function (interval) {
     const modal = document.getElementById("modal-background")
+    const playAgain = document.getElementById("play-again")
     clearInterval(interval);
-    modal.style.display = "block"
+    // if( modal.style.display === "block"){
+        modal.style.display = "block"
+        playAgain.style.display = "block"
+    // } else {
+        // modal.style.display = "none"
+    // }
     // alert("RIP..... press 'okay' to play again");
     // window.location.reload();
 }
