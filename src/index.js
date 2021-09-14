@@ -14,7 +14,16 @@ document.addEventListener("DOMContentLoaded", function() {
     const medium = document.querySelector('#medium');
     const hard = document.querySelector('#hard');
     const music = document.querySelector("#audio")
-
+    const playAgain = document.querySelector("#play-again")
+    const modal = document.querySelector("#modal-background")
+    
+    playAgain.addEventListener("click", function(){
+        easy.disabled = false;
+        medium.disabled = false;
+        hard.disabled = false;
+        // modal.style.display = "none"
+        playAgain.style.display = "none"
+    })
 
     easy.addEventListener("click", function() {
         let game = new Game(25);
@@ -23,6 +32,12 @@ document.addEventListener("DOMContentLoaded", function() {
         easy.disabled = true;
         medium.disabled = true;
         hard.disabled = true;
+        if(modal.style.display === "block"){
+            modal.style.display = "none"
+        } 
+        // else {
+        //     modal.style.display = "none"
+        // }
 
     })
 
@@ -33,6 +48,9 @@ document.addEventListener("DOMContentLoaded", function() {
         easy.disabled = true;
         medium.disabled = true;
         hard.disabled = true;
+        if (modal.style.display === "block") {
+            modal.style.display = "none"
+        }
     })
 
     hard.addEventListener("click", function () {
@@ -42,6 +60,9 @@ document.addEventListener("DOMContentLoaded", function() {
         easy.disabled = true;
         medium.disabled = true;
         hard.disabled = true;
+        if (modal.style.display === "block") {
+            modal.style.display = "none"
+        }
     })
 })
 

@@ -264,12 +264,21 @@ footer {
     color: white;
     font-size: 60px;
     text-align: center;
-    margin-top: 40px ;
+    margin-top: 20%;
 }
-#modal-background a {
-    text-align: center;
-    align-self: center;
+#modal-background button {
+    position: relative;
+    top: 9%;
     justify-content: center;
-    margin-top: 40px ;
+    margin-top: 20px ;
     text-decoration: none;
+    font-size: 50px;
+    right: -26%;
+    color: black;
+}
+
+#modal-background a {
+    text-decoration: none;
+    color: black;
+    padding: 3px 5px 3px 5px;
 }
