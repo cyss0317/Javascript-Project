@@ -235,7 +235,7 @@ audio::-webkit-media-controls-enclosure {
 
 #audio{
     position: absolute;
-    right: 42.5%;
+    right: 39.5%;
     top: 2.5%;
 }
 
@@ -248,6 +248,9 @@ audio::-webkit-media-controls-enclosure {
 .navbars ul li a {
     text-decoration: none;
     color: black;
+}
+*{
+    overflow: hidden;
 }
 
 footer {

@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } 
         won.style.display = "block"
         gameover.style.display = "block"
+        music.play
         // else {
             //     modal.style.display = "none"
             // }
