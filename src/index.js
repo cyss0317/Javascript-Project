@@ -18,13 +18,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const modal = document.querySelector("#modal-background")
     const won = document.querySelector("#won")
     const gameover = document.querySelector("#gameover")
+    const choose = document.querySelector("#choose")
 
     playAgain.addEventListener("click", function(){
         easy.disabled = false;
         medium.disabled = false;
         hard.disabled = false;
         playAgain.style.display = "none"
-        
+        choose.style.display = "block"
     })
     
     easy.addEventListener("click", function() {

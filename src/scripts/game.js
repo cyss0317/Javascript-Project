@@ -2,6 +2,7 @@ const Chicken = require("./chicken.js");
 const MovingObject = require("./moving_object.js");
 const Util = require('./util');
 const Croco = require('./croco.js');
+const { compose } = require("redux");
 
 function Game(num_movingObjects = 20) {
     
@@ -19,22 +20,26 @@ Game.prototype.win = function(interval) {
     const modal = document.getElementById("modal-background")
     const playAgain = document.getElementById("play-again")
     const message = document.getElementById("gameover")
+    const choose = document.querySelector("#choose")
     if ( this.chicken.pos[1] < 5 &&  this.chicken.pos[0] < 250 && this.chicken.pos[0] > 200 ){
         clearInterval(interval);
         modal.style.display = "block"
         playAgain.style.display = "block"
         message.style.display = "none"
+        choose.style.display = "none"
     }
 }
 Game.prototype.end = function (interval) {
     const modal = document.getElementById("modal-background")
     const playAgain = document.getElementById("play-again")
     const message = document.getElementById("won")
+    const choose = document.querySelector("#choose")
     clearInterval(interval);
     // if( modal.style.display === "block"){
         modal.style.display = "block"
         playAgain.style.display = "block"
         message.style.display = "none"
+        choose.style.display = "none"
     // } else {
         // modal.style.display = "none"
     // }
