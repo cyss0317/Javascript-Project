@@ -16,14 +16,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const music = document.querySelector("#audio")
     const playAgain = document.querySelector("#play-again")
     const modal = document.querySelector("#modal-background")
+    const won = document.querySelector("#won")
+    const gameover = document.querySelector("#gameover")
 
     playAgain.addEventListener("click", function(){
         easy.disabled = false;
         medium.disabled = false;
         hard.disabled = false;
         playAgain.style.display = "none"
+        
     })
-
+    
     easy.addEventListener("click", function() {
         let game = new Game(25);
         let gameView = new GameView(game, ctx);
@@ -34,34 +37,40 @@ document.addEventListener("DOMContentLoaded", function() {
         if(modal.style.display === "block"){
             modal.style.display = "none"
         } 
+        won.style.display = "block"
+        gameover.style.display = "block"
         // else {
-        //     modal.style.display = "none"
-        // }
-
+            //     modal.style.display = "none"
+            // }
+            
+        })
+        
+        medium.addEventListener("click", function () {
+            let game = new Game(50);
+            let gameView = new GameView(game, ctx);
+            gameView.start();
+            easy.disabled = true;
+            medium.disabled = true;
+            hard.disabled = true;
+            if (modal.style.display === "block") {
+                modal.style.display = "none"
+            }
+            won.style.display = "block"
+            gameover.style.display = "block"
+        })
+        
+        hard.addEventListener("click", function () {
+            let game = new Game(80);
+            let gameView = new GameView(game, ctx);
+            gameView.start();
+            easy.disabled = true;
+            medium.disabled = true;
+            hard.disabled = true;
+            if (modal.style.display === "block") {
+                modal.style.display = "none"
+            }
+            won.style.display = "block"
+            gameover.style.display = "block"
+        })
     })
-
-    medium.addEventListener("click", function () {
-        let game = new Game(50);
-        let gameView = new GameView(game, ctx);
-        gameView.start();
-        easy.disabled = true;
-        medium.disabled = true;
-        hard.disabled = true;
-        if (modal.style.display === "block") {
-            modal.style.display = "none"
-        }
-    })
-
-    hard.addEventListener("click", function () {
-        let game = new Game(80);
-        let gameView = new GameView(game, ctx);
-        gameView.start();
-        easy.disabled = true;
-        medium.disabled = true;
-        hard.disabled = true;
-        if (modal.style.display === "block") {
-            modal.style.display = "none"
-        }
-    })
-})
 

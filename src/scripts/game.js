@@ -18,19 +18,23 @@ Game.DIM_Y = 550;
 Game.prototype.win = function(interval) {
     const modal = document.getElementById("modal-background")
     const playAgain = document.getElementById("play-again")
+    const message = document.getElementById("gameover")
     if ( this.chicken.pos[1] < 5 &&  this.chicken.pos[0] < 250 && this.chicken.pos[0] > 200 ){
         clearInterval(interval);
         modal.style.display = "block"
         playAgain.style.display = "block"
+        message.style.display = "none"
     }
 }
 Game.prototype.end = function (interval) {
     const modal = document.getElementById("modal-background")
     const playAgain = document.getElementById("play-again")
+    const message = document.getElementById("won")
     clearInterval(interval);
     // if( modal.style.display === "block"){
         modal.style.display = "block"
         playAgain.style.display = "block"
+        message.style.display = "none"
     // } else {
         // modal.style.display = "none"
     // }
