@@ -1,46 +1,42 @@
-const Chicken = require('./chicken.js');
-const Game = require('./game.js');
+const Chicken = require("./chicken.js");
+const Game = require("./game.js");
 
 function GameView(game, ctx) {
-    this.ctx = ctx;
-    this.game = game;
+  this.ctx = ctx;
+  this.game = game;
 }
 
+GameView.prototype.start = function () {
+  this.bindKeyHandlers();
+  const interval = setInterval(() => {
+    this.game.moveObjects();
+    this.game.draw(this.ctx);
+    if (this.game.checkCollisions()) {
+      this.game.end(interval);
+    }
+    this.game.win(interval);
+  }, 10);
 
-GameView.prototype.start = function() {
-    this.bindKeyHandlers();
-    const interval = setInterval( () => { 
-        this.game.moveObjects();
-        this.game.draw(this.ctx);
-        if (this.game.checkCollisions()) {
-            this.game.end(interval);
-        }
-        this.game.win(interval);
-        
-    }, 10);
-
-
-    // this.game.moveObjects();
-    // requestAnimationFrame(this.game.draw(this.ctx)
-
+  // this.game.moveObjects();
+  // requestAnimationFrame(this.game.draw(this.ctx)
 };
-
 
 GameView.MOVES = {
-    w: [0, -25],
-    a: [-25, 0],
-    s: [0, 25],
-    d: [25, 0],
+  w: [0, -25],
+  a: [-25, 0],
+  s: [0, 25],
+  d: [25, 0],
 };
 
-
 GameView.prototype.bindKeyHandlers = function bindKeyHandlers() {
-    const chicken = this.game.chicken;
+  const chicken = this.game.chicken;
 
-    Object.keys(GameView.MOVES).forEach(function (k) {
-        const move = GameView.MOVES[k];
-        key(k, function () { chicken.moves(move); });
+  Object.keys(GameView.MOVES).forEach(function (k) {
+    const move = GameView.MOVES[k];
+    key(k, function () {
+      chicken.moves(move);
     });
+  });
 };
 
 module.exports = GameView;

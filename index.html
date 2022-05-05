@@ -1,73 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon"  type=":image" href="https://github.com/cyss0317/Javascript-Project/blob/main/img/Chicken_right_move.png?raw=true">
-    <link rel="stylesheet" href="./src/styles/css_reset.css">
-    <link rel="stylesheet" href="./src/styles/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type=":image"
+      href="https://github.com/cyss0317/Javascript-Project/blob/main/img/Chicken_right_move.png?raw=true"
+    />
+    <link rel="stylesheet" href="./src/styles/css_reset.css" />
+    <link rel="stylesheet" href="./src/styles/index.css" />
     <link rel="stylesheet" href="./dist/main.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+
     <script src="./vendor/keymaster.js"></script>
     <script src="./dist/main.js"></script>
     <title>Chicken Run</title>
-
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="navbars">
-        <ul>
-            <audio id="audio" controls autoplay loop>
-                <source src="./music/Adventures – A Himitsu (No Copyright Music).mp3" type="audio/mpeg" > 
-            </audio>
-            <li id="nav-buttons"><a href="https://github.com/cyss0317" target="_blank">LinkedIn</a></li>
-            <li id="nav-buttons"><a href="https://github.com/cyss0317?tab=repositories" target="_blank">Github</a></li>
-            <li id="nav-buttons"><a href="mailto:cyss0317@google.com">Email</a></li>
-        </ul>
+      <ul>
+        <audio id="audio" controls autoplay loop>
+          <source
+            src="./music/Adventures – A Himitsu (No Copyright Music).mp3"
+            type="audio/mpeg"
+          />
+        </audio>
+        <li id="nav-buttons">
+          <a href="https://github.com/cyss0317" target="_blank">LinkedIn</a>
+        </li>
+        <li id="nav-buttons">
+          <a href="https://github.com/cyss0317?tab=repositories" target="_blank"
+            >Github</a
+          >
+        </li>
+        <li id="nav-buttons"><a href="mailto:cyss0317@google.com">Email</a></li>
+      </ul>
     </div>
 
-    
-    
-    
     <div class="story-container">
-        <div class="direction-container">
-            <div class="direction">
-                <div id="direction1">
-                    <h2 id="direction-head">Direction</h2>
-                    <p id="direction"> Move the chicken to get to the end point where arrow is pointing to safely. There is a lot of scray animals out there to
-                        eat your chicken!</p>
-                </div>
-                <div id="difficulty1">
-                    <div>
-                        <h2 id="choose-diff">Choose difficulty level to Play</h2>
-                    </div>
-                    <p id="keyboard-w">W: move forward</p> 
-                    <p id="keyboard-a">A: move backward</p> 
-                    <p id="keyboard-s">S: move rightward</p> 
-                    <p id="keyboard-d">D: move leftward</p> 
-                </div>
+      <div class="direction-container">
+        <div class="direction">
+          <div id="direction1">
+            <h2 id="direction-head">Direction</h2>
+            <p id="direction">
+              Move the chicken to get to the end point where arrow is pointing
+              to safely. There is a lot of scray animals out there to eat your
+              chicken!
+            </p>
+          </div>
+          <div id="difficulty1">
+            <div>
+              <h2 id="choose-diff">Choose difficulty level to Play</h2>
             </div>
+            <p id="keyboard-w">W: move forward</p>
+            <p id="keyboard-a">A: move backward</p>
+            <p id="keyboard-s">S: move rightward</p>
+            <p id="keyboard-d">D: move leftward</p>
+          </div>
         </div>
-            
-        <div class="game-canvas">
-            <div id="modal-background" >
+      </div>
 
-                <p id="gameover">GAME OVER</p>
-                <p id="won">Congratulations, You Won!</p>
-                <button type="radio" id="play-again">Play Again</button>
-                <p id="choose">Choose your difficulty level</p>
-            </div>
-                <canvas id="game-canvas"></canvas>
-            <div class="radio-buttons">
-                <button type="radio" id="easy">Easy</button>
-                <button type="radio" id="medium">Medium</button>
-                <button type="radio" id="hard">Hard</button>
-            </div>
+      <div class="game-canvas">
+        <div id="modal-background">
+          <p id="gameover">GAME OVER</p>
+          <p id="won">Congratulations, You Won!</p>
+          <button type="radio" id="play-again">Play Again</button>
+          <p id="choose">Choose your difficulty level</p>
         </div>
-            
-        <!-- <div>  
+        <canvas id="game-canvas"></canvas>
+        <div class="radio-buttons">
+          <button type="radio" id="easy">Easy</button>
+          <button type="radio" id="medium">Medium</button>
+          <button type="radio" id="hard">Hard</button>
+        </div>
+      </div>
+
+      <!-- <div>  
             <div class="story">
                 <h2 id="story-head">Chicken Run!!!</h2>
                 <div id="story-content">
@@ -78,24 +91,22 @@
                 </div>
             </div>
         </div> -->
-        <div class="direction-container">
-            <div class="story1">
-                <div id="story-head">
-        Chicken Run!!!
-                </div>
-                <div id="difficulty1">
-                Chicken run is about a chicken that fled from its cage for freedom realized that the best place to live is in the cage.
-                You can take this chicken back home. But try not to get caught by dangerous animals. Users can move the chicken by
-                pressing W(up), A(left), S(back), and D(right). Dangerous animals can appear from left or right with different rate of
-                speeds. Enjoy!!
-                </div>
-                <br>
-            </div>
+      <div class="direction-container">
+        <div class="story1">
+          <div id="story-head">Chicken Run!!!</div>
+          <div id="difficulty1">
+            Chicken run is about a chicken that fled from its cage for freedom
+            realized that the best place to live is in the cage. You can take
+            this chicken back home. But try not to get caught by dangerous
+            animals. Users can move the chicken by pressing W(up), A(left),
+            S(back), and D(right). Dangerous animals can appear from left or
+            right with different rate of speeds. Enjoy!!
+          </div>
+          <br />
         </div>
+      </div>
     </div>
-        
+
     <footer>By Yun Sung Choi</footer>
-
-
-</body>
+  </body>
 </html>

@@ -30,7 +30,6 @@
     "webpack": "^5.44.0",
     "webpack-cli": "^4.7.2"
   },
-  
   "browserslist": [
     "defaults"
   ],
@@ -38,8 +37,4 @@
     "watch": "webpack --watch --mode=development",
     "build": "webpack --mode=production"
   }
-
-
 }
-
-
